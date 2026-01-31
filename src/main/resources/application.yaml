@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  jackson:
+    time-zone: UTC
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/factory_events}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
