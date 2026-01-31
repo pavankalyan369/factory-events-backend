@@ -20,8 +20,4 @@ public class EventController {
         return eventService.ingestBatch(events);
     }
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello pavan";
-    }
 }
